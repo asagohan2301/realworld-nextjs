@@ -1,95 +1,99 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div class="home-page">
+      <div class="banner">
+        <div class="container">
+          <h1 class="logo-font">conduit</h1>
+          <p>A place to share your knowledge.</p>
         </div>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div class="container page">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="feed-toggle">
+              <ul class="nav nav-pills outline-active">
+                <li class="nav-item">
+                  <a class="nav-link" href="">Your Feed</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="">Global Feed</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="article-preview">
+              <div class="article-meta">
+                <a href="/profile/eric-simons"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
+                <div class="info">
+                  <a href="/profile/eric-simons" class="author">Eric Simons</a>
+                  <span class="date">January 20th</span>
+                </div>
+                <button class="btn btn-outline-primary btn-sm pull-xs-right">
+                  <i class="ion-heart"></i> 29
+                </button>
+              </div>
+              <a href="/article/how-to-build-webapps-that-scale" class="preview-link">
+                <h1>How to build webapps that scale</h1>
+                <p>This is the description for the post.</p>
+                <span>Read more...</span>
+                <ul class="tag-list">
+                  <li class="tag-default tag-pill tag-outline">realworld</li>
+                  <li class="tag-default tag-pill tag-outline">implementations</li>
+                </ul>
+              </a>
+            </div>
+
+            <div class="article-preview">
+              <div class="article-meta">
+                <a href="/profile/albert-pai"><img src="http://i.imgur.com/N4VcUeJ.jpg" /></a>
+                <div class="info">
+                  <a href="/profile/albert-pai" class="author">Albert Pai</a>
+                  <span class="date">January 20th</span>
+                </div>
+                <button class="btn btn-outline-primary btn-sm pull-xs-right">
+                  <i class="ion-heart"></i> 32
+                </button>
+              </div>
+              <a href="/article/the-song-you" class="preview-link">
+                <h1>The song you won't ever stop singing. No matter how hard you try.</h1>
+                <p>This is the description for the post.</p>
+                <span>Read more...</span>
+                <ul class="tag-list">
+                  <li class="tag-default tag-pill tag-outline">realworld</li>
+                  <li class="tag-default tag-pill tag-outline">implementations</li>
+                </ul>
+              </a>
+            </div>
+
+            <ul class="pagination">
+              <li class="page-item active">
+                <a class="page-link" href="">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="">2</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <div class="sidebar">
+              <p>Popular Tags</p>
+
+              <div class="tag-list">
+                <a href="" class="tag-pill tag-default">programming</a>
+                <a href="" class="tag-pill tag-default">javascript</a>
+                <a href="" class="tag-pill tag-default">emberjs</a>
+                <a href="" class="tag-pill tag-default">angularjs</a>
+                <a href="" class="tag-pill tag-default">react</a>
+                <a href="" class="tag-pill tag-default">mean</a>
+                <a href="" class="tag-pill tag-default">node</a>
+                <a href="" class="tag-pill tag-default">rails</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
 }
