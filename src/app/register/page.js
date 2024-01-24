@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -55,7 +56,7 @@ export default function Register() {
           <div className="col-md-6 offset-md-3 col-xs-12">
             <h1 className="text-xs-center">Sign up</h1>
             <p className="text-xs-center">
-              <a href="/login">Have an account?</a>
+              <Link href="/login">Have an account?</Link>
             </p>
 
             <ul className="error-messages">

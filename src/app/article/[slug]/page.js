@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Article({ params }) {
   return (
     <div className="article-page">
@@ -7,9 +9,9 @@ export default function Article({ params }) {
           <h2>{params.slug}</h2>
 
           <div className="article-meta">
-            <a href="/profile/eric-simons"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
+            <Link href="/profile/eric-simons"><img src="http://i.imgur.com/Qr71crq.jpg" /></Link>
             <div className="info">
-              <a href="/profile/eric-simons" className="author">Eric Simons</a>
+              <Link href="/profile/eric-simons" className="author">Eric Simons</Link>
               <span className="date">January 20th</span>
             </div>
             <button className="btn btn-sm btn-outline-secondary">
@@ -50,9 +52,9 @@ export default function Article({ params }) {
 
         <div className="article-actions">
           <div className="article-meta">
-            <a href="profile.html"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
+            <Link href="profile.html"><img src="http://i.imgur.com/Qr71crq.jpg" /></Link>
             <div className="info">
-              <a href="" className="author">Eric Simons</a>
+              <Link href="" className="author">Eric Simons</Link>
               <span className="date">January 20th</span>
             </div>
 
@@ -93,11 +95,11 @@ export default function Article({ params }) {
                 </p>
               </div>
               <div className="card-footer">
-                <a href="/profile/author" className="comment-author">
+                <Link href="/profile/author" className="comment-author">
                   <img src="http://i.imgur.com/Qr71crq.jpg" className="comment-author-img" />
-                </a>
+                </Link>
                 &nbsp;
-                <a href="/profile/jacob-schmidt" className="comment-author">Jacob Schmidt</a>
+                <Link href="/profile/jacob-schmidt" className="comment-author">Jacob Schmidt</Link>
                 <span className="date-posted">Dec 29th</span>
               </div>
             </div>
@@ -109,11 +111,11 @@ export default function Article({ params }) {
                 </p>
               </div>
               <div className="card-footer">
-                <a href="/profile/author" className="comment-author">
+                <Link href="/profile/author" className="comment-author">
                   <img src="http://i.imgur.com/Qr71crq.jpg" className="comment-author-img" />
-                </a>
+                </Link>
                 &nbsp;
-                <a href="/profile/jacob-schmidt" className="comment-author">Jacob Schmidt</a>
+                <Link href="/profile/jacob-schmidt" className="comment-author">Jacob Schmidt</Link>
                 <span className="date-posted">Dec 29th</span>
                 <span className="mod-options">
                   <i className="ion-trash-a"></i>
