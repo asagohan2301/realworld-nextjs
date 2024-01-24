@@ -1,10 +1,12 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer>
-      <div class="container">
-        <a href="/" class="logo-font">conduit</a>
-        <span class="attribution">
-          An interactive learning project from <a href="https://thinkster.io">Thinkster</a>. Code &amp;
+      <div className="container">
+        <Link href="/" className="logo-font">conduit</Link>
+        <span className="attribution">
+          An interactive learning project from <Link href="https://thinkster.io">Thinkster</Link>. Code &amp;
           design licensed under MIT.
         </span>
       </div>
