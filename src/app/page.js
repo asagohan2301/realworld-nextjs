@@ -57,7 +57,7 @@ export default function Home() {
                     <p>{article.description}</p>
                     <span>Read more...</span>
                     <ul className="tag-list">
-                      {article.tag_list.map((tag, tag_index) => {
+                      {article.tag_list && article.tag_list.map((tag, tag_index) => {
                         return <li className="tag-default tag-pill tag-outline" key={tag_index}>{tag}</li>
                       })}
                     </ul>

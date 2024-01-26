@@ -21,7 +21,7 @@ export default function ArticleForm({ originalTitle, originalDescription, origin
         title: title,
         description: description,
         body: body,
-        tag_list: tagList
+        tag_list: tagList.split(",")
       }
     }
 
@@ -78,7 +78,7 @@ export default function ArticleForm({ originalTitle, originalDescription, origin
                   <textarea
                     className="form-control"
                     rows="8"
-                    placeholder="Write your article (in markdown)"
+                    placeholder="Write your article"
                     onChange={(e) => { setBody(e.target.value) }}
                     value={body}
                   ></textarea>
@@ -87,13 +87,10 @@ export default function ArticleForm({ originalTitle, originalDescription, origin
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Enter tags"
+                    placeholder="Enter tags separated by commas as tag1,tag2,tag3"
                     onChange={(e) => { setTagList(e.target.value) }}
-                  // value={tagList && tagList.join(" ")}
+                    value={tagList}
                   />
-                  {/* <div className="tag-list">
-                    <span className="tag-default tag-pill"> <i className="ion-close-round"></i> tag </span>
-                  </div> */}
                 </fieldset>
                 <button className="btn btn-lg pull-xs-right btn-primary" type="submit">
                   Publish Article
