@@ -27,10 +27,10 @@ export default function Header() {
                   <Link className="nav-link" href="/article/new"> <i className="ion-compose"></i>&nbsp;New Article </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" href="/settings"> <i className="ion-gear-a"></i>&nbsp;Settings </Link>
+                  <Link className="nav-link" href=""> <i className="ion-gear-a"></i>&nbsp;Settings </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" href="/profile/eric-simons">
+                  <Link className="nav-link" href="">
                     <img src="" className="user-pic" />
                     {username}
                   </Link>
