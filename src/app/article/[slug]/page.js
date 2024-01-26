@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { getCookieValue } from "@/lib/actions";
 
 export default function Article({ params }) {
   const [article, setArticle] = useState({
@@ -12,6 +14,9 @@ export default function Article({ params }) {
     author: "",
     createdAt: ""
   });
+  const [messages, setMessages] = useState([]);
+
+  const router = useRouter();
 
   useEffect(() => {
     fetch(`http://localhost:3000/api/articles/${params.slug}`)
@@ -29,6 +34,27 @@ export default function Article({ params }) {
         });
       })
   }, [params.slug]);
+
+  function onClickEditArticlePage() {
+    router.push(`/article/${params.slug}/edit`);
+  }
+
+  async function onClickDeleteArticle() {
+    const token = await getCookieValue("token");
+    const res = await fetch(`http://localhost:3000/api/articles/${params.slug}`, {
+      method: "DELETE",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
+    });
+
+    if (res.ok) {
+      router.push("/");
+    } else {
+      const data = await res.json();
+      setMessages(data.errors);
+    }
+  }
 
   return (
     <div className="article-page">
@@ -51,10 +77,10 @@ export default function Article({ params }) {
               <i className="ion-heart"></i>
               &nbsp; Favorite Post <span className="counter">(29)</span>
             </button>
-            <button className="btn btn-sm btn-outline-secondary">
+            <button className="btn btn-sm btn-outline-secondary" onClick={onClickEditArticlePage}>
               <i className="ion-edit"></i> Edit Article
             </button>
-            <button className="btn btn-sm btn-outline-danger">
+            <button className="btn btn-sm btn-outline-danger" onClick={onClickDeleteArticle}>
               <i className="ion-trash-a"></i> Delete Article
             </button>
           </div>
