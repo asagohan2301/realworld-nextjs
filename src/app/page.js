@@ -26,40 +26,18 @@ export default function Home() {
 
             <div className="article-preview">
               <div className="article-meta">
-                <Link href="/profile/eric-simons"><img src="http://i.imgur.com/Qr71crq.jpg" /></Link>
+                <Link href=""><img src="http://i.imgur.com/Qr71crq.jpg" /></Link>
                 <div className="info">
-                  <Link href="/profile/eric-simons" className="author">Eric Simons</Link>
-                  <span className="date">January 20th</span>
+                  <Link href="" className="author">author</Link>
+                  <span className="date">date</span>
                 </div>
                 <button className="btn btn-outline-primary btn-sm pull-xs-right">
                   <i className="ion-heart"></i> 29
                 </button>
               </div>
-              <Link href="/article/how-to-build-webapps-that-scale" className="preview-link">
-                <h1>How to build webapps that scale</h1>
-                <p>This is the description for the post.</p>
-                <span>Read more...</span>
-                <ul className="tag-list">
-                  <li className="tag-default tag-pill tag-outline">realworld</li>
-                  <li className="tag-default tag-pill tag-outline">implementations</li>
-                </ul>
-              </Link>
-            </div>
-
-            <div className="article-preview">
-              <div className="article-meta">
-                <Link href="/profile/albert-pai"><img src="http://i.imgur.com/N4VcUeJ.jpg" /></Link>
-                <div className="info">
-                  <Link href="/profile/albert-pai" className="author">Albert Pai</Link>
-                  <span className="date">January 20th</span>
-                </div>
-                <button className="btn btn-outline-primary btn-sm pull-xs-right">
-                  <i className="ion-heart"></i> 32
-                </button>
-              </div>
-              <Link href="/article/the-song-you" className="preview-link">
-                <h1>The song you won't ever stop singing. No matter how hard you try.</h1>
-                <p>This is the description for the post.</p>
+              <Link href="" className="preview-link">
+                <h1>title</h1>
+                <p>description</p>
                 <span>Read more...</span>
                 <ul className="tag-list">
                   <li className="tag-default tag-pill tag-outline">realworld</li>
