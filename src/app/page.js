@@ -36,7 +36,7 @@ export default function Home() {
                 </button>
               </div>
               <Link href="" className="preview-link">
-                <h1>title</h1>
+                <h2>title</h2>
                 <p>description</p>
                 <span>Read more...</span>
                 <ul className="tag-list">
