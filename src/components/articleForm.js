@@ -2,18 +2,18 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { getCookieValue } from "../lib/actions";
+import { getCookieValue } from "@/lib/actions";
 
-export default function Editor() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [body, setBody] = useState("");
-  const [tagList, setTagList] = useState([]);
+export default function ArticleForm({ originalTitle, originalDescription, originalBody, originalTagList, endpoint, method }) {
+  const [title, setTitle] = useState(originalTitle);
+  const [description, setDescription] = useState(originalDescription);
+  const [body, setBody] = useState(originalBody);
+  const [tagList, setTagList] = useState(originalTagList);
   const [messages, setMessages] = useState([]);
 
   const router = useRouter();
 
-  async function onSubmitCreateArticle(e) {
+  async function onSubmitArticle(e) {
     e.preventDefault();
 
     const article = {
@@ -21,13 +21,13 @@ export default function Editor() {
         title: title,
         description: description,
         body: body,
-        tag_list: tagList.split(" ")
+        tag_list: tagList
       }
     }
 
     const token = await getCookieValue("token");
-    const res = await fetch("http://localhost:3000/api/articles", {
-      method: "POST",
+    const res = await fetch(endpoint, {
+      method: method,
       headers: {
         "Content-type": "application/json",
         "Authorization": `Bearer ${token}`,
@@ -41,7 +41,6 @@ export default function Editor() {
     } else {
       setMessages(data.errors);
     }
-
   }
 
   return (
@@ -50,18 +49,30 @@ export default function Editor() {
         <div className="row">
           <div className="col-md-10 offset-md-1 col-xs-12">
             <ul className="error-messages">
-              {messages.map((message, index) => {
+              {messages && messages.map((message, index) => {
                 return <li key={index}>{message}</li>
               })}
             </ul>
 
-            <form onSubmit={onSubmitCreateArticle}>
+            <form onSubmit={onSubmitArticle}>
               <fieldset>
                 <fieldset className="form-group">
-                  <input type="text" className="form-control form-control-lg" placeholder="Article Title" onChange={(e) => { setTitle(e.target.value) }} />
+                  <input
+                    type="text"
+                    className="form-control form-control-lg"
+                    placeholder="Article Title"
+                    onChange={(e) => { setTitle(e.target.value) }}
+                    value={title}
+                  />
                 </fieldset>
                 <fieldset className="form-group">
-                  <input type="text" className="form-control" placeholder="What's this article about?" onChange={(e) => { setDescription(e.target.value) }} />
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="What's this article about?"
+                    onChange={(e) => { setDescription(e.target.value) }}
+                    value={description}
+                  />
                 </fieldset>
                 <fieldset className="form-group">
                   <textarea
@@ -69,10 +80,17 @@ export default function Editor() {
                     rows="8"
                     placeholder="Write your article (in markdown)"
                     onChange={(e) => { setBody(e.target.value) }}
+                    value={body}
                   ></textarea>
                 </fieldset>
                 <fieldset className="form-group">
-                  <input type="text" className="form-control" placeholder="Enter tags" onChange={(e) => { setTagList(e.target.value) }} />
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter tags"
+                    onChange={(e) => { setTagList(e.target.value) }}
+                  // value={tagList && tagList.join(" ")}
+                  />
                   {/* <div className="tag-list">
                     <span className="tag-default tag-pill"> <i className="ion-close-round"></i> tag </span>
                   </div> */}
@@ -86,5 +104,5 @@ export default function Editor() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { setCookie } from "@/app/lib/actions";
+import { setCookie } from "@/lib/actions";
 
 export default function Login() {
   const [email, setEmail] = useState("");

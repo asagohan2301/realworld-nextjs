@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { getCookieValue } from "@/app/lib/actions";
+import { getCookieValue } from "@/lib/actions";
 
 export default function Header() {
   const [username, setUsername] = useState("");
@@ -24,7 +24,7 @@ export default function Header() {
             (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link" href="/editor"> <i className="ion-compose"></i>&nbsp;New Article </Link>
+                  <Link className="nav-link" href="/article/new"> <i className="ion-compose"></i>&nbsp;New Article </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" href="/settings"> <i className="ion-gear-a"></i>&nbsp;Settings </Link>
