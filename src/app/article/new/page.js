@@ -7,7 +7,7 @@ export default function New() {
       originalDescription=""
       originalBody=""
       originalTagList={[]}
-      endpoint="http://localhost:3000/api/articles"
+      endpoint={`${process.env.NEXT_PUBLIC_API_URL}/articles`}
       method="POST"
     />
   );

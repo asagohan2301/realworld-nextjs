@@ -29,7 +29,7 @@ export default function Login() {
       }
     }
 
-    const res = await fetch("http://localhost:3000/api/users/login", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/login`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"
