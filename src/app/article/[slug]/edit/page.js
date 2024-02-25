@@ -7,7 +7,7 @@ export default function Edit({ params }) {
   const [articleData, setArticleData] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/articles/${params.slug}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/articles/${params.slug}`)
       .then((res) => {
         return res.json();
       })
@@ -27,7 +27,7 @@ export default function Edit({ params }) {
       originalDescription={articleData.description}
       originalBody={articleData.body}
       originalTagList={articleData.tag_list}
-      endpoint={`http://localhost:3000/api/articles/${params.slug}`}
+      endpoint={`${process.env.NEXT_PUBLIC_API_URL}/articles/${params.slug}`}
       method="PUT"
     />
   );

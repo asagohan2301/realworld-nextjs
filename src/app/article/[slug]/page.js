@@ -19,7 +19,7 @@ export default function Article({ params }) {
   const router = useRouter();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/articles/${params.slug}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/articles/${params.slug}`)
       .then((res) => {
         return res.json();
       })
@@ -41,7 +41,7 @@ export default function Article({ params }) {
 
   async function onClickDeleteArticle() {
     const token = await getCookieValue("token");
-    const res = await fetch(`http://localhost:3000/api/articles/${params.slug}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/articles/${params.slug}`, {
       method: "DELETE",
       headers: {
         "Authorization": `Bearer ${token}`,
